@@ -438,8 +438,8 @@ San Jose State University thesis format]
 }
 
 % Set some default values for certain things.
-\def\@title{}
-\def\@author{}
+\def\@title{PhotoProof: A Tool for Digital Image Forensics}
+\def\@author{Pruthviraj Urankar}
 \def\@dept{COMPUTER SCIENCE}
 \def\@copyrightyear{\number\the\year}
 \def\@reffile{references}

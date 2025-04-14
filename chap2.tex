@@ -1,70 +1,155 @@
-\chapter{Symbolic Cross-References\label{chap:blah}}
+\chapter{Background}
+This section reviews the key literature and existing systems related to image security, certificate verification, and medical data protection through blockchain. It then illustrates how metadata hashing and smart contracts can be leveraged to create tamper-proof solutions.
 
-This chapter has more information on symbolic cross-referencing.
-In addition, there are examples showing how to typeset a figure
-and a simple table.
+\section{Related Work}
 
-\section{Figures}
+\subsection{Blockchain Technology and Metadata Hashing for Photo Integrity}
+Image tampering is a widespread issue in digital media. With users posting images on dozens
+of social sites, authentication becomes ever harder when traditional approaches depend on
+readily modifiable metadata kept in centralized databases. Blockchain technology presents
+an immutable, decentralized ledger initially envisioned by Nakamoto~\cite{nakamoto2008} as
+a tamper-evident solution for protecting such metadata. By employing hashes of key image
+characteristics, like timestamps, geospatial information, and device identifiers, and by
+keeping them on-chain, any future alterations to the original image will cause a discrepancy,
+thereby indicating possible tampering~\cite{cheng2020}.
 
-Figure~\ref{fig:encrypted_virus} has been typeset so that it
-occupies half the width of text on a page ({\tt width=0.5}). Note the 
-symbolic cross-reference, that is, you simple \verb+\ref{fig:encrypted_virus}+
-to obtain the appropriate number for Figure~\ref{fig:encrypted_virus}.
+Among the numerous systems utilizing this method, two of the most popular platforms are
+particularly worth mentioning: PHOTOCHAIN and Go-Sharing. PHOTOCHAIN~\cite{wessely2023} is
+a secure marketplace and community area that is particularly designed for photographers
+and digital content creators. Its process is initiated when a user uploads an image
+through PHOTOCHAIN's decentralized platform, which generates a metadata hash written to
+the blockchain. Smart contracts manage licensing terms and ownership transfer, enabling
+transparent and traceable handoffs whenever a piece is purchased or licensed. When an
+image is uploaded and then someone attempts to tamper with it, the on-chain hash will no
+longer match, making the tampering evident right away. PHOTOCHAIN also addresses this further
+with an integrated payment module---usually cryptocurrency-based---for instant and trackable
+compensation.
 
-\begin{figure}[htb]
-\centering
-\includegraphics[width=0.5\textwidth]{images/encrypted_virus.jpg}
-\caption{Encrypted virus before and after decryption.} 
-\label{fig:encrypted_virus}
-\end{figure}
+Similarly, Go-Sharing~\cite{zhang2023} tackles cross-platform photo sharing with a focus
+on privacy. Photos are shared or uploaded in a system that utilizes both encryption and
+metadata hashing for confidentiality and integrity. Smart contracts automate permission
+checks to restrict decryption and viewing to whitelisted addresses. Any unauthorized tampering
+with the content of a photo automatically causes a hash mismatch, which sends notifications
+to content owners. Go-Sharing also focuses on easy-to-use monitoring capabilities, which allow
+creators or owners to monitor continuously their content's authenticity status on social networks.
 
-If you move things around, insert or delete text, Figure~\ref{fig:encrypted_virus}
-will still give you the correct number. This is a very handy feature.
+Through the utilization of publicly accessible ledgers instead of central servers, PHOTOCHAIN
+and Go-Sharing establish greater degrees of user trust. 
+
+Users can simply verify whether the
+stored hash of an image is equal to its current state, eliminating the necessity of a trusted
+third party to oversee or validate the process. Aside from the technological advantages, both
+systems emphasize user-friendly experiences---a critical factor for the wider adaptation of
+blockchain technology within the creative industries. Even as the pace of image manipulation
+using AI keeps growing, these initiatives illustrate how secure hashing techniques, coupled
+with automatic verification through smart contracts, can successfully curtail the spread of
+manipulated or misrepresentative images.
+
+\subsection{Blockchain for Certificate Verification}
+
+Whereas digital photographs represent one domain susceptible to forgery, academic and
+professional credentials are equally subject to such integrity threats. Classic authentication
+of certificates depends heavily on manual crosschecks and centralized administrative authorities.
+
+Not only does this delay the validation process, but it also creates weaknesses whereby
+certificates can be forged easily. Blockchain-based systems bypass these limitations by storing
+credential hashes on an immutable ledger. By checking these on-chain records, external entities
+can instantaneously verify both the existence and validity of an asserted qualification.
+
+Blockchain-Based Systems. Initiatives such as CERTbchain demonstrate the promise of decentralized
+applications in making certificate issuance and verification more efficient~\cite{malsa2021}.
+Whenever an institution issues a credential, a unique hash---based on the certificate's metadata---is
+recorded on the blockchain. Employers or other verifying parties can then request the blockchain
+to confirm that the certificate is complete and unaltered. This mechanism minimizes the need for
+numerous intermediaries and can provide near-instant verification, providing considerable advantages
+over conventional methods that may take several days or weeks to verify manually. Another model,
+as discussed by Senthilkumar \cite{senthilkumar2023}, builds on the idea with the
+addition of layered access controls and revocation procedures through the use of smart contracts.
+This approach allows organizations to instantaneously revoke or alter certificates, hence ensuring
+the most accurate records are present while maintaining historical chain-of-custody integrity.
+As such, any manipulation or outdated credential would immediately be apparent during the
+verification procedure.
+
+This lessens the likelihood of fraud and promotes a more conducive environment for employers,
+students, and institutions.
+
+\subsection{Medical Image Sharing using Blockchain}
+The healthcare field is one that highlights the imperative of data security and integrity,
+particularly for medical imaging modalities like X-rays, CT scans, and MRIs. Any tampering with
+such images could have serious consequences for patient care, leading either to misdiagnoses or
+compromised treatment. Consequently, researchers and healthcare providers have looked to blockchain
+technology to ensure that a record, once generated, cannot be modified without detection. In a sample
+system, Tang. proposed a Medical Images Sharing System based on blockchain and smart
+contract-based access control~\cite{tang2018}. In it, all the medical images are stored on-chain with
+a unique cryptographic reference. Only authorized parties---specialists, physicians, or patients---are
+granted permission to view or move these images, regulated by role-based smart contract logic.
+
+If one tries to alter or substitute an image, the cryptographic hash that is stored on the blockchain
+will no longer be the same, thereby instantly indicating tampering.
+
+Wen built on this concept by proposing an Authenticable Medical Image-Sharing Scheme that
+incorporates blockchain technology with an embedded QR code containing shadow information~\cite{wen2022}.
+This hybrid system provides an additional layer of verifiability by combining on-chain records with
+off-chain scan functionality.
+
+Upon every scan of the QR code, the system re-calculates the image hash and compares it to the value
+on the blockchain. In the event of tampering, discrepancies are immediately apparent. The solution
+emphasizes the versatility of blockchain in being able to support a variety of cryptographic techniques,
+noting secure data sharing and authenticatable validity in sensitive healthcare contexts.
 
 
-\section{Tables}
+\section{Blockchain Image Hashing and Metadata with Smart Contracts}
+While the previous works focus on the benefits of having cryptographic pointers to data and images
+on the blockchain, our solution differentiates by targeting full decentralization and user control
+from the start---excluding centralized backends, special logins, or data stores per se.
 
-Table~\ref{tab:19} 
-shows some interesting stuff. I hope you enjoy it.
+\textbf{Store Only Hashes On-Chain (No IPFS or Batching Yet):}
+In contrast to most systems which incorporate blockchain storage with off-chain support such as IPFS,
+we have a straightforward trustless process where users determine where to store images (personal cloud
+or local drive) and only store a cryptographic hash on Ethereum. Later versions can incorporate IPFS or
+transaction batching to increase scalability and minimize expenses; nonetheless, our proof-of-concept
+demonstrates the functional feasibility of a completely decentralized architecture without these
+optimizations~\cite{chunmiao2021,andrade2022}.
 
-\begin{table}[htb]
-\caption{MysteryTwister Zodiac Challenge\label{tab:19}}
-\begin{center}
-\begin{tabular}{c|lc}\hline\hline
-Case & \multicolumn{1}{c}{Description} & Percentage\\ \hline
-1F & Fast outer hill climb and English stats & 13.00\% \\
-1S & Slow outer hill climb and English stats & \phantom{0}4.00\% \\
-2F & Fast outer hill climb and Zodiac~408 stats & 70.00\% \\
-2S & Slow outer hill climb and Zodiac~408 stats & 84.00\% \\ \hline\hline
-\end{tabular}
-\end{center}
-\end{table}
+\textbf{Decentralized Authentication:}
+Instead of a backend login flow, users interact directly with the blockchain using Ethereum wallets.
+Private keys are the only guardian of ownership, removing server-side credential management and
+lessening security vulnerabilities~\cite{cheng2020}.
 
+\textbf{On-Chain Verification:}
+When a user shares or verifies an image, the app re-calculates its hash locally and compares it to the
+on-chain reference. Discrepancies immediately expose unauthorized changes. This trustless, automated
+process discourages any server-side manipulation or hidden changes.
 
-\section{Citations}
+\textbf{Fully User-Governed Storage:}
+Whereas PHOTOCHAIN or Go-Sharing would be able to use proprietary backends or partially-centralized
+storage, our proposal does not make any sacrifices with regards to user control. They have full
+optionality in choosing how (and where) they wish to keep their image information; the blockchain
+merely stores the metadata hash. The cost-effective architecture conserves on-chain storage space
+while protecting the user's data from breaches of centralised storage.
 
-References are cited using the \verb+\cite+ command. For example,
-see~\cite{harden} for information on the Zodiac killer. You can include more than one 
-reference in a single citation, like this~\cite{harden,bib1,basa,bib3,bib2,glurk,bib7,bib10,bib11}
-or this~\cite{bibAC,bib17}.
+\noindent{
+\textbf{Differences between Go-Sharing and PHOTOCHAIN.}
+}
 
+Though we have similar objectives---such as inhibiting photo manipulation---our system differs from
+current platforms in the following manners:
 
-\section{The Last Word}
+\begin{itemize}
+  \item \emph{No Dedicated Backend:} We employ smart contracts exclusively and local/third-party
+        storage of the user's preference. This reduces points of failure and encourages greater
+        decentralization.
+  \item \emph{Wallet-Only Authentication:} We eschew username/password systems; users authenticate
+        through their Ethereum wallet, which is simpler to access and more private.
+  \item \emph{Transparent On-Chain Actions:} The user interface shows explicit blockchain interactions
+        (e.g., proving ownership or sending images), with every transaction and fee appearing in
+        real-time.
+  \item \emph{Self-Contained Verification:} All hash calculations are done on the client-side,
+        precluding any tampering by a server process and permitting immediate detection of
+        inconsistencies.
+\end{itemize}
 
-There are a lot of other uses for symbolic cross-referencing. For example, this chapter
-title has a label so I can refer to Chapter~\ref{chap:blah} (as I just did).
-My recommendation is that you include a label with anything and everything that 
-is numbered. If it has a number, there is a good chance that you will
-refer to it at some point.
-
-Finally, note that you need to \LaTeX\ a file at least twice (three times to
-be safe) without changing anything to be sure that the numbering is correct.
-Why is that? Good question.
-When you \LaTeX\ your document, various auxiliary files are created. Most of these files contain
-information related to cross-references that appear in your {\tt .tex} file (or files). The next time you 
-\LaTeX\ your document, the information from the previous run is read from
-these auxiliary files. Consequently, after making changes to any {\tt .tex}
-file, you will need to \LaTeX\ your document at least twice to be sure that the
-cross-reference information is updated in the resulting pdf. In fact, you should
-run \LaTeX\ three consecutive times to be certain that cross-references are correct.
-
+Although this design now rules out the incorporation of IPFS and sophisticated gas optimization
+techniques (such as transaction batching and Layer 2 rollups), it indicates the viability of a
+simple on-chain metadata hashing scheme. Additional optimizations for scalability and cost reduction
+will be investigated in future work.

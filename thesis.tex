@@ -5,6 +5,7 @@
 % Abstract, acknowledgements, chapters, appendices, and references are in separate tex files
 %
 %
+% !TeX root = thesis.tex
 \documentclass[oneref]{urithesis}
 \usepackage{amsmath,amsthm, amsfonts, amssymb, amsxtra,amsopn}
 \usepackage{graphicx}
@@ -18,6 +19,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{textcomp} % Required for upquote.
 \usepackage{listings} % Used for printing source code in papers
+\usepackage{listings-solidity} % Used for printing Solidity code in papers
+\usepackage{js-listings} % Used for printing JavaScript code in papers
 \usepackage{microtype}
 \usepackage{pgfplots} % Used to create graphs
 \usepackage{makecell} % Used to create thick links in tables
@@ -82,13 +85,13 @@
 %
 % ***** first committee member's name
 %
-\def\firstCommitteeMember{Space Ghost}
+\def\firstCommitteeMember{Dr. Robert Chun}
 \def\firstCommitteeMemberAffiliation{Department of Computer Science}
 %
 % ***** second committee member's name
 %
-\def\secondCommitteeMember{Count Dracula}
-\def\secondCommitteeMemberAffiliation{Department of Mathematics}
+\def\secondCommitteeMember{Prof. Fabio Di Troia}
+\def\secondCommitteeMemberAffiliation{Department of Computer Science}
 
 \setcounter{secnumdepth}{3}
 
@@ -97,16 +100,16 @@
 %
 % ***** title
 %
-\title{Typesetting Your Report for Fun and Profit}
+\title{PhotoProof: A Mobile Application for Verifying the Authenticity of Images}
 
 %
 % ***** author's name
 %
-\author{Mark Stamp}
+\author{Pruthviraj Urankar}
 %
 % ***** graduation year
 %
-\copyrightyear{2015}
+\copyrightyear{2025}
 
 %
 % Do not change this...

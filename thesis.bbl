@@ -1,0 +1,130 @@
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{#1}
+\addcustomcontentsline
+\csname url@rmstyle\endcsname
+\providecommand{\newblock}{\relax}
+\providecommand{\bibinfo}[2]{#2}
+\providecommand\BIBentrySTDinterwordspacing{\spaceskip=0pt\relax}
+\providecommand\BIBentryALTinterwordstretchfactor{4}
+\providecommand\BIBentryALTinterwordspacing{\spaceskip=\fontdimen2\font plus
+\BIBentryALTinterwordstretchfactor\fontdimen3\font minus \fontdimen4\font\relax}
+\providecommand\BIBforeignlanguage[2]{{%
+\expandafter\ifx\csname l@#1\endcsname\relax
+\typeout{** WARNING: IEEEtran.bst: No hyphenation pattern has been}%
+\typeout{** loaded for the language `#1'. Using the pattern for}%
+\typeout{** the default language instead.}%
+\else
+\language=\csname l@#1\endcsname
+\fi
+#2}}
+
+\bibitem{yang2024}
+\BIBentryALTinterwordspacing
+A.~Yang, ``Ai image misinformation has surged, google researchers find,'' May 29 2024. [Online]. Available: \url{https://www.nbcnews.com/tech/tech-news/ai-image-misinformation-surged-google-research-finds-rcna154333}
+\BIBentrySTDinterwordspacing
+
+\bibitem{pentagonExplosion}
+\BIBentryALTinterwordspacing
+M.~Haddad, ``Fake pentagon explosion photo goes viral: How to spot an ai image,'' May 23 2023. [Online]. Available: \url{https://www.aljazeera.com/news/2023/5/23/fake-pentagon-explosion-photo-goes-viral-how-to-spot-an-ai-image}
+\BIBentrySTDinterwordspacing
+
+\bibitem{photoshopEpidemic}
+\BIBentryALTinterwordspacing
+G.~del Rio, ``The photoshop epidemic on social media,'' 2022. [Online]. Available: \url{https://bodypositivealliance.org/blog/the-photoshop-epidemic-on-social-media}
+\BIBentrySTDinterwordspacing
+
+\bibitem{kateMiddletonControversy}
+\BIBentryALTinterwordspacing
+K.~Gibson, ``A complete breakdown of kate middleton's photoshop controversy,'' Mar 12 2024. [Online]. Available: \url{https://people.com/kate-middleton-photoshop-controversy-everything-to-know-8607980}
+\BIBentrySTDinterwordspacing
+
+\bibitem{nakamoto2008}
+\BIBentryALTinterwordspacing
+S.~Nakamoto, ``Bitcoin: a peer-to-peer electronic cash system,'' Oct 2008. [Online]. Available: \url{https://bitcoin.org/bitcoin.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cheng2020}
+F.~Cheng, W.~Zhou, and P.~Li, ``Smart contract security: Blockchain and beyond,'' \emph{IEEE Transactions on Blockchain}, 2020.
+
+\bibitem{wessely2023}
+W.~W. Wessely \emph{et~al.}, ``Photochain: A blockchain based secure photo sharing framework for cross-social network,'' \emph{International Research Journal of Modernization in Engineering Technology and Science}, 2023.
+
+\bibitem{zhang2023}
+M.~Zhang \emph{et~al.}, ``Go-sharing: A blockchain-based privacy-preserving framework for cross-social network photo sharing,'' \emph{IEEE Transactions}, 2023.
+
+\bibitem{malsa2021}
+N.~Malsa \emph{et~al.}, ``Certbchain: A step by step approach towards building a blockchain based distributed application for certificate verification system,'' Dec 2021.
+
+\bibitem{senthilkumar2023}
+V.~Senthilkumar \emph{et~al.}, ``Certificate storage and verification using blockchain,'' 2023.
+
+\bibitem{tang2018}
+H.~Tang \emph{et~al.}, ``Medical images sharing system based on blockchain and smart contract of credit scores,'' 2018.
+
+\bibitem{wen2022}
+W.~Wen \emph{et~al.}, ``Authenticable medical image-sharing scheme based on embedded small shadow qr code and blockchain framework,'' \emph{Multimedia Systems}, 2022.
+
+\bibitem{chunmiao2021}
+C.~Li, ``Gas estimation and optimization for smart contracts on ethereum,'' 2021.
+
+\bibitem{andrade2022}
+R.~Andrade, M.~Diniz, and J.~Lima, ``Optimizing blockchain and ipfs for long-term decentralized storage,'' \emph{Decentralized Web Research}, 2022.
+
+\bibitem{iosSecGarg}
+\BIBentryALTinterwordspacing
+S.~Garg and N.~Baliyan, ``Comparative analysis of android and ios from security viewpoint,'' \emph{Comput. Sci. Rev.}, vol.~40, no.~C, May 2021. [Online]. Available: \url{https://doi.org/10.1016/j.cosrev.2021.100372}
+\BIBentrySTDinterwordspacing
+
+\bibitem{devCert}
+\BIBentryALTinterwordspacing
+M.~Zheng, H.~Xue, Y.~Zhang, T.~Wei, and J.~C. Lui, ``Enpublic apps: Security threats using ios enterprise and developer certificates,'' in \emph{Proceedings of the 10th ACM Symposium on Information, Computer and Communications Security}, ser. ASIA CCS '15.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: Association for Computing Machinery, 2015, p. 463–474. [Online]. Available: \url{https://doi.org/10.1145/2714576.2714593}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SecureEnclave2024}
+\BIBentryALTinterwordspacing
+Dec 2024. [Online]. Available: \url{https://support.apple.com/guide/security/secure-enclave-sec59b0b31ff/web}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ethereuem}
+R.~A. Canessane, N.~Srinivasan, A.~Beuria, A.~Singh, and B.~M. Kumar, ``Decentralised applications using ethereum blockchain,'' in \emph{2019 Fifth International Conference on Science Technology Engineering and Mathematics (ICONSTEM)}, vol.~1, 2019, pp. 75--79.
+
+\bibitem{erc721}
+S.~Bradić, D.~Delija, G.~Sirovatka, and M.~Žagar, ``Creating own nft token using erc721 standard and solidity programming language,'' in \emph{2022 45th Jubilee International Convention on Information, Communication and Electronic Technology (MIPRO)}, 2022, pp. 1053--1056.
+
+\bibitem{blockChainAndBeyod}
+J.~Singh, S.~Rani, and P.~Kumar, ``Blockchain and smart contracts: Evolution, challenges, and future directions,'' in \emph{2024 International Conference on Knowledge Engineering and Communication Systems (ICKECS)}, vol.~1, 2024, pp. 1--5.
+
+\bibitem{forensicAnalysisOfJPEG}
+T.~Gloe, ``Forensic analysis of ordered data structures on the example of jpeg files,'' in \emph{2012 IEEE International Workshop on Information Forensics and Security (WIFS)}, 2012, pp. 139--144.
+
+\bibitem{robustImageHashing}
+R.~Venkatesan, S.-M. Koon, M.~Jakubowski, and P.~Moulin, ``Robust image hashing,'' in \emph{Proceedings 2000 International Conference on Image Processing (Cat. No.00CH37101)}, vol.~3, 2000, pp. 664--666 vol.3.
+
+\bibitem{poseidon}
+\BIBentryALTinterwordspacing
+L.~Grassi, D.~Khovratovich, C.~Rechberger, A.~Roy, and M.~Schofnegger, ``Poseidon: A new hash function for {Zero-Knowledge} proof systems,'' in \emph{30th USENIX Security Symposium (USENIX Security 21)}.\hskip 1em plus 0.5em minus 0.4em\relax USENIX Association, Aug. 2021, pp. 519--535. [Online]. Available: \url{https://www.usenix.org/conference/usenixsecurity21/presentation/grassi}
+\BIBentrySTDinterwordspacing
+
+\bibitem{authenticationOfDigitalImageExifMetadata}
+D.~P. Gangwar and A.~Pathania, ``\BIBforeignlanguage{en}{Authentication of digital image using exif metadata and decoding properties},'' \emph{\BIBforeignlanguage{en}{International Journal of Scientific Research in Computer Science, Engineering and Information Technology}}, pp. 335--341, Dec. 2018.
+
+\bibitem{authenticationOfDigitalImageJpegHeaders}
+E.~Kee, M.~K. Johnson, and H.~Farid, ``Digital image authentication from jpeg headers,'' \emph{IEEE Transactions on Information Forensics and Security}, vol.~6, no.~3, pp. 1066--1075, 2011.
+
+\bibitem{harran2017}
+H.~Martin, F.~William, and C.~Kevin, ``A method for verifying integrity and authenticating digital media,'' \emph{Applied Computing and Informatics}, vol.~14, no.~2, pp. 145--158, 2018.
+
+\bibitem{benenson2013}
+\BIBentryALTinterwordspacing
+Z.~Benenson, F.~Gassmann, and L.~Reinfelder, ``Android and ios users' differences concerning security and privacy,'' in \emph{CHI '13 Extended Abstracts on Human Factors in Computing Systems}, ser. CHI EA '13.\hskip 1em plus 0.5em minus 0.4em\relax New York, NY, USA: Association for Computing Machinery, 2013, p. 817–822. [Online]. Available: \url{https://doi.org/10.1145/2468356.2468502}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Nguyen2022GasSaverAT}
+\BIBentryALTinterwordspacing
+Q.-T. Nguyen, D.~B. Son, T.~T. Nguyen, and B.-L. Do, ``Gassaver: A tool for solidity smart contract optimization,'' \emph{Proceedings of the Fourth ACM International Symposium on Blockchain and Secure Critical Infrastructure}, 2022. [Online]. Available: \url{https://api.semanticscholar.org/CorpusID:248990169}
+\BIBentrySTDinterwordspacing
+
+\bibitem{wandCodeObfuscation}
+P.~Wang, D.~Wu, Z.~Chen, and T.~Wei, ``Protecting million-user ios apps with obfuscation: Motivations, pitfalls, and experience,'' in \emph{2018 IEEE/ACM 40th International Conference on Software Engineering: Software Engineering in Practice Track (ICSE-SEIP)}, 2018, pp. 235--244.
+
+\end{thebibliography}

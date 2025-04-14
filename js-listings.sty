@@ -1,0 +1,79 @@
+\RequirePackage{listings}
+
+\lstdefinelanguage{JavaScript}{
+    keywords=[1]{typeof, new, true, false, catch, function, return, null},    keywordstyle=[1]\color{blue}\bfseries,
+    keywords=[2]{const, let, var},
+    keywords=[3]{if, catch, switch, if, in, while, do, else, case, break},
+    keywords=[4]{class, export, boolean, throw, implements, import, this, default},
+    keywords=[5]{useEffect, useState, useRef, useCallback, useMemo, useLayoutEffect, useReducer, useContext, useImperativeHandle, useDebugValue},
+    sensitive=true,
+    comment=[l]{//},
+    morecomment=[s]{/*}{*/},
+    commentstyle=\color{gray}\ttfamily,
+    stringstyle=\color{red}\ttfamily,
+    morestring=[b]',
+    morestring=[b]"
+}
+
+% my custom style (use as you wish)
+% custom colors
+\definecolor{halfgray}{gray}{0.55}
+\definecolor{frame}{RGB}{207, 207, 207}
+\definecolor{background}{RGB}{247, 247, 247}
+\definecolor{JS-keyword}{RGB}{42,0.0,255}
+\definecolor{JS-string}{RGB}{127,0,85}
+\colorlet{JS-number}{magenta!60!black}
+\definecolor{JS-comment}{rgb}{0,0.5,0}
+\colorlet{JS-punct}{red!60!black}
+\definecolor{JS-obj-brace}{RGB}{20,105,176}
+\definecolor{JS-lst-brace}{RGB}{20,105,176}
+
+
+% style definition
+\lstdefinestyle{JS}{
+    % language grammar
+    language=JavaScript,
+    % formatting and styling
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    rulecolor=\color{frame},
+    frame=single,
+    frameround={t}{t}{t}{t},
+    framexleftmargin=6mm,
+    numbers=left,
+    xleftmargin=20pt,
+    numberstyle=\tiny\color{halfgray},
+    backgroundcolor=\color{background},
+    basicstyle=\scriptsize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                                     
+    numbers=left,                    
+    numbersep=8pt,                              
+    showtabs=false,                  
+    tabsize=2,
+    stepnumber=1,
+    escapeinside={(*!}{!*)},
+    % colors and other styles    
+    commentstyle=\color{JS-comment},
+    keywordstyle=\color{JS-keyword},
+    stringstyle=\color{JS-string},
+    literate=
+        *{0}{{{\color{JS-number}0}}}{1}
+        {1}{{{\color{JS-number}1}}}{1}
+        {2}{{{\color{JS-number}2}}}{1}
+        {3}{{{\color{JS-number}3}}}{1}
+        {4}{{{\color{JS-number}4}}}{1}
+        {5}{{{\color{JS-number}5}}}{1}
+        {6}{{{\color{JS-number}6}}}{1}
+        {7}{{{\color{JS-number}7}}}{1}
+        {8}{{{\color{JS-number}8}}}{1}
+        {9}{{{\color{JS-number}9}}}{1}
+        {:}{{{\color{JS-punct}:}}}{1}
+        {,}{{{\color{JS-punct},}}}{1}
+        {\{}{{{\color{JS-obj-brace}{\{}}}}{1}
+        {\}}{{{\color{JS-obj-brace}{\}}}}}{1}
+        {[}{{{\color{JS-lst-brace}{[}}}}{1}
+        {]}{{{\color{JS-lst-brace}{]}}}}{1},
+}
