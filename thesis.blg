@@ -8,7 +8,6 @@ A level-1 auxiliary file: chap4.aux
 A level-1 auxiliary file: chap5.aux
 The style file: uriref.bst
 A level-1 auxiliary file: appA.aux
-A level-1 auxiliary file: appB.aux
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
@@ -23,44 +22,44 @@ Database file #1: references.bib
 --  available at http://www.ele.uri.edu/info/thesis/IEEEtran_bst_HOWTO.pdf
 
 Done.
-You've used 29 entries,
+You've used 30 entries,
             3985 wiz_defined-function locations,
-            985 strings with 13702 characters,
-and the built_in function-call counts, 17561 in all, are:
-= -- 1364
-> -- 386
+            990 strings with 14043 characters,
+and the built_in function-call counts, 17956 in all, are:
+= -- 1399
+> -- 390
 < -- 97
-+ -- 204
-- -- 72
-* -- 808
-:= -- 2752
-add.period$ -- 60
-call.type$ -- 29
-change.case$ -- 28
++ -- 206
+- -- 73
+* -- 821
+:= -- 2827
+add.period$ -- 62
+call.type$ -- 30
+change.case$ -- 30
 chr.to.int$ -- 228
-cite$ -- 29
-duplicate$ -- 1366
-empty$ -- 1565
-format.name$ -- 93
-if$ -- 4003
+cite$ -- 30
+duplicate$ -- 1400
+empty$ -- 1603
+format.name$ -- 94
+if$ -- 4089
 int.to.chr$ -- 0
-int.to.str$ -- 29
-missing$ -- 253
-newline$ -- 130
-num.names$ -- 28
-pop$ -- 661
+int.to.str$ -- 30
+missing$ -- 261
+newline$ -- 133
+num.names$ -- 29
+pop$ -- 681
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1375
+skip$ -- 1408
 stack$ -- 0
-substring$ -- 590
-swap$ -- 990
+substring$ -- 593
+swap$ -- 1010
 text.length$ -- 21
 text.prefix$ -- 0
 top$ -- 8
 type$ -- 0
 warning$ -- 0
-while$ -- 62
-width$ -- 31
-write$ -- 296
+while$ -- 63
+width$ -- 32
+write$ -- 305

@@ -3,6 +3,27 @@
 The results and analysis section will present findings about its operational performance alongside cost-effectiveness and scalability capabilities which specifically examine the Ethereum blockchain-based photo registration and verification system. 
 The discussion will cover transaction expenses together with hash storage benefits and verification speed and potential future integration of IPFS for decentralized image storage.
 
+\section{Contract Deployment and Gas Cost}
+The process of deploying a smart contract to a blockchain network incurs a one-time deployment cost, 
+which varies depending on the contract's complexity and the network conditions at the time of deployment. For this system, the contract was deployed on the Sepolia Testnet, a low-cost Ethereum test network designed for testing and experimentation before deploying on the mainnet.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/contractDeploymentCost.png}
+    \caption{Deployment cost of the smart contract on Sepolia Testnet.}
+    \label{fig:deploymentCost}
+\end{figure}
+
+\textbf{Analysis of Deployment Costs}
+From the transaction details, we can observe that the contract deployment on Sepolia Testnet cost 0.01996834 SepoliaETH, equivalent to approximately \$32.67 USD. The detailed breakdown of this deployment cost offers several insights:
+
+\begin{itemize}
+    \item \textbf{Gas Limit and Gas Used:} The deployment required 2,088,237 gas units yet the actual consumption reached 2,070,636 units thus showing a small difference between both. 
+    This suggests that the smart contract is not overly complex in terms of its logic and computations, yet sufficiently complex to require a reasonable gas fee for deployment.    \item \textbf{Gas Limit:} The gas limit for deploying the contract was set to 300,000 units, which is standard for contracts of this complexity. The actual gas used was around 200,000 units, indicating efficient use of resources.
+    \item \textbf{Base and Priority Fees:} The transaction base fee amounted to 8.143578611 GWEI while the priority fee reached 1.5 GWEI. This level of gas usage matches what is expected for smart contracts of this complexity operating on a test network.
+    \item \textbf{Relatively Low Cost:} The cost of deploying the contract on Sepolia Testnet is relatively low, approximately \$32.67. This is significantly lower than deploying on the Ethereum mainnet, where costs can reach hundreds or even thousands of dollars depending on network congestion and gas prices.
+\end{itemize}
+
 \section{Transaction Costs}
 
 The first concern that always arises when interacting with a blockchain network is the transaction cost (often referred to as gas fees in the case of Ethereum). 
@@ -15,7 +36,15 @@ The transaction cost is calculated as follows:
 \end{equation}
 
 \begin{itemize}
-    \item \textbf{Storing only hashes:} The cost to register a hash on the blockchain using Sepolia Testnet is approximately 0.00025 SEPETH, equivalent to roughly \$0.00004 USD at current rates. This is a significantly lower cost compared to storing larger data types or images directly on the blockchain.
+    \item \textbf{Storing only hashes:} The cost to register a hash on the blockchain using Sepolia Testnet is approximately 0.00025 SEPETH, equivalent to roughly \$0.00004 USD at current rates. 
+    This is a significantly lower cost compared to storing larger data types or images directly on the blockchain.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.5\textwidth]{images/gasFeeForRegisterHash.jpeg}
+        \caption{Transaction cost for storing hashes on Ethereum.}
+        \label{fig:gasFeeForRegisterHash}
+    \end{figure}
+    
     \item \textbf{Gas Limit:} The gas limit for a transaction is set to 21,000 units, which is the standard for simple transactions. More complex transactions may require a higher gas limit.
     \item \textbf{Base Fee:} The base fee is dynamic and can fluctuate based on network congestion. It is advisable to check the current base fee before executing a transaction.
     \item \textbf{Comparison with full metadata and image storage:} It would be too expensive to store full image content or even the whole metadata (instead of just the hash). With each byte of data written to the chain, there is a hefty gas cost, and as such, it is cost-prohibitive to store large objects directly on Ethereum. For example, it would easily cost several dollars per transaction to store an image of size 4MB, depending on the file size and the load on the network.
@@ -31,6 +60,12 @@ The verification process, which involves checking whether a hash exists in the s
 \section{Comparison: Hash Storage vs. Full Metadata/Image Storage}
 The decision to store only hashes rather than full metadata or images on the blockchain was made for both cost-efficiency and scalability. Here’s a breakdown of the trade-offs between different approaches:
 
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/storageCost.png}
+    \caption{Transaction cost for storing hashes on Ethereum.}
+    \label{fig:transactionCost}
+\end{figure}
 
 \begin{table}[ht]
     \centering

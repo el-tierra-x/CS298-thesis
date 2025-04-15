@@ -11,11 +11,28 @@ The decision to build the application on iOS rather than Android was primarily i
 The iOS platform provides a range of security features, including the Secure Enclave, which is a dedicated hardware component that securely stores cryptographic keys and performs cryptographic operations. This feature is particularly beneficial for our application, as it allows us to securely manage the private keys used for signing transactions on the Ethereum blockchain.
 
 \subsection{Rationale}
+
+\begin{table}[bt]
+    \centering
+    \begin{tabularx}{\textwidth}{|X|X|X|}
+    \hline
+    \textbf{Security Feature}  & \textbf{Android}  & \textbf{iOS} \\ \hline
+    Reverse Engineering        & Easily accessible APK files, decompiling with tools like JADX, JADX-GUI  & Difficult to reverse-engineer, code obfuscation in place, strict app store guidelines \\ \hline
+    Code Signing               & APK signature required, but root access can bypass code signing & Strict code signing required, Apple’s strict app store review process \\ \hline
+    Security                   & Vulnerable to malware, less secure app permissions, security patches depend on device manufacturer & More secure with app sandboxing, fewer vulnerabilities, regular security updates from Apple \\ \hline
+    Developer Certificates     & Developers use a keystore to sign apps, no centralized certificate authority & Centralized certificate authority for all app distribution, stricter control over certificates \\ \hline
+    \end{tabularx}
+    \caption{Security Features Comparison Between Android and iOS}
+    \label{tab:securityFeatures}
+\end{table}
+
 \begin{itemize}
     \item {\textbf{Closed Ecosystem:}} iOS's closed ecosystem provides a more controlled environment for app development and distribution. This reduces the risk of malware and unauthorized modifications, which is particularly important for an application that deals with sensitive data such as photo hashes and metadata. iOS’s tightly controlled ecosystem ensures that apps undergo rigorous vetting and approval processes, reducing the likelihood of malware and unauthorized modifications \cite{iosSecGarg}
     \item {\textbf{Code Signing and App review:}} A developer certificate from Apple needs to sign all iOS applications in order to prevent post-publication modifications of app code. The app's security relies on developer-signed certificates thus tampering attempts will make the application useless for malicious intent \cite{devCert}.
     \item {\textbf{Secure Enclave:}} iOS incorporates Secure Enclave as a hardware-based processor to secure operations involving cryptographic keys and authentication. The hardware-backed security function delivers specific advantages to Ethereum private key storage by guarding it from unauthorized intruders \cite{SecureEnclave2024}.
 \end{itemize}
+
+
 
 
 \section{Smart Contract and Blockchain Design}
@@ -26,6 +43,13 @@ The  photo verification system is built on top of the Ethereum blockchain \cite{
 The application uses ERC721 standards to store unique photo entries which were initially established for NFTs  \cite{erc721}. ERC20 tokens are interchangeable but ERC721 tokens serve as unique digital items because they represent one-of-a-kind digital content like hashes derived from images along with their metadata. The ERC721 standard provides unique tokenId assignment for each token which serves perfectly for blockchain identity photo associations.
 
 ERC721 implements three essential components which include ownership policies for digital assets along with transfer protocols and automatic event recording machinery for proving asset origins. The main benefit of using ERC721 in this project is its capability to link a hash with one individual user for both immutable tracking purposes.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.1]{images/smartContractArch.png}
+    \caption{General smart contract architecture.}
+    \label{fig:smartContractArch}
+\end{figure}
 
 \subsection{Tokenization and the Role of ERC721}
 The ERC721 standard functions as an Ethereum protocol which provides features to track and produce non-fungible tokens (NFTs). Under this standard every token possesses a separate tokenId which serves as its distinct identification while it can be assigned to a user. The Merkle root hash which originates from photo data and metadata functions as the singular identification mark of images for this project. The proof-of-existence and ownership functions are encoded as ERC721 token while the unique fingerprint is simultaneously added to blockchain data
@@ -81,6 +105,14 @@ The hash data type uses bytes32 to support SHA-256 output while minimizing stora
 A basic cryptographic hash of an image generates a unique fingerprint yet proves inadequate for strong verification because it does not work well with incomplete metadata. The system solves this problem through Merkle Tree hashing which creates a hierarchical cryptographic data structure that verifies proofs in both their entirety and parts while maintaining high efficiency and preventing tampering.
 
 The Merkle Tree which blockchain systems initially used for data integrity verification operates as a binary hash tree that uses leaf nodes to store hashed data items (metadata fields or image content) and non-leaf nodes to store hashes of their child nodes. The Merkle Root functions as the top node which contains the summary of all inputs. The digital authentication workflow benefits from this structure because it allows quick proof-of-inclusion checks and rapid updates and minimal recomputation when data changes \cite{forensicAnalysisOfJPEG}.
+
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.5]{images/merkleTreeHash.png}
+    \caption{Merkle Tree Hashing process.}
+    \label{fig:merkleTree}
+\end{figure}
+
 
 \subsection{Use Case in Photo Authenticity}
 In the proposed system, a Merkle Tree is constructed from a combination of the following data elements:
@@ -177,6 +209,12 @@ Data obtained from digital photos through Exchangeable Image File Format (EXIF) 
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[ht!]
+    \centering
+    \includegraphics[scale=0.245]{./images/merkleHashComputation.png}
+    \caption{Merkle Hash Computation using Exif Metadata}
+\end{figure}
+
 Each field receives individual hashing before the Merkle Tree formation enables both complete and partial verification methods (Section 3.3).
 The selected metadata fields are chosen based on their reliability and entropy, ensuring that they provide a robust basis for photo verification. The system is designed to be flexible, allowing for future updates to the metadata selection criteria as new technologies and standards emerge.
 
@@ -194,12 +232,6 @@ These fields are hashed using SHA-256 via \textit{Crypto.digestStringAsync(...)}
 
 \noindent{Below is an excerpt of the hashing implementation:}
 \lstinputlisting[language=Javascript, caption={Hash compute function},captionpos=b]{code/hashingImplementaion.tsx}
-
-\begin{figure}[ht!]
-    \centering
-    \includegraphics[scale=0.245]{./images/merkleHashComputation.png}
-    \caption{Merkle Hash Computation using Exif Metadata}
-\end{figure}
 
 \subsection{Security Properties and Tamper Detection}
 Using a comprehensive set of metadata increases the entropy of the final hash and enhances the system’s tamper-detection resolution. For instance:
@@ -250,13 +282,27 @@ This flow is triggered when a user captures an image using the in-app camera. Th
 \begin{itemize}
     \item {\textbf{Image Capture:}} The user initiates photo capture through the app. This bypasses the system gallery or third-party apps to maintain control over the image lifecycle.
     
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{images/imageCapture.jpeg}
+        \caption{Capture Image: Image Capture UI}
+        \label{fig:imageCapture}
+    \end{figure}
+    
     \item {\textbf{Confirmation Prompt:}} Immediately after capture, the app prompts the user to either:
     \begin{itemize}
         \item "Save and Register" (initiate verification and blockchain registration),
         \item Or "Discard" the image.
     \end{itemize}
 
-    \item {\textbf{Metadata Extraction:}} pon confirmation, critical metadata is extracted from the image using iOS APIs. For any info that may not be available the value is defaulted to empty string(""). This capture metadata includes:
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{images/confirmationPrompt.jpeg}
+        \caption{Confirm Image: Image Confirmation Prompt}
+        \label{fig:confirmationPrompt}
+    \end{figure}
+
+    \item {\textbf{Metadata Extraction:}} Upon confirmation, critical metadata is extracted from the image using iOS APIs. For any info that may not be available the value is defaulted to empty string(""). This capture metadata includes:
     \begin{itemize}
         \item Device and camera details (Make, Model, LensModel),
         \item Timestamps and GPS location,
@@ -275,7 +321,21 @@ This flow is triggered when a user captures an image using the in-app camera. Th
         \item Upon confirmation, MetaMask signs and broadcasts the transaction to the blockchain.
     \end{itemize}
 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{images/blockchainConfirmation.jpeg}
+        \caption{Blockchain Confirmation: Confirm Transaction on Metamask}
+        \label{fig:blockchainConfirmation}
+    \end{figure}
+
     \item {\textbf{Confirmation and Local Save:}} After the transaction is confirmed, the app receives a callback or event notification (e.g., via ethers.js or web3 polling) and proceeds to save the image locally. This finalizes the process. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{images/etherTransactinConf1.jpeg}
+        \includegraphics[width=0.30\textwidth]{images/etherTransactinConf2.jpeg}
+        \caption{Blockchain Confirmation: Ethereum Testnet transaction confirmation}
+        \label{fig:ethereuemConfirmation}
+    \end{figure}
 \end{itemize}
 
 This flow ensures the image is cryptographically bound to its metadata and immutably registered on the blockchain at the point of capture leaving no opportunity for tampering between capture and storage.
@@ -290,12 +350,26 @@ This flow ensures the image is cryptographically bound to its metadata and immut
 \subsection{Verification Flow}
 This flow allows a user to validate whether a previously captured image is authentic. The steps are:
 \begin{itemize}
-    \item {\textbf{Image Selection:}} The user selects an image from the app's gallery or camera roll.
     \item {\textbf{Verification Mode Selection:}} The app offers two modes:
-        \begin{itemize}
-            \item {\textbf{Full Metadata Verification:}} All metadata is extracted and included.
-            \item {\textbf{Partial Metadata Verification:}} User manually enters critical fields (e.g., timestamp, device make) in case of missing metadata.
-        \end{itemize}
+    \begin{itemize}
+        \item {\textbf{Full Metadata Verification:}} All metadata is extracted and included.
+        \item {\textbf{Partial Metadata Verification:}} User manually enters critical fields (e.g., timestamp, device make) in case of missing metadata.
+    \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.30\textwidth]{images/verifyFlowRoot.jpeg}
+            \caption{Verify Image: Choose flow}
+            \label{fig:verificationRoot}
+        \end{figure}
+
+    \item {\textbf{Image Selection:}} The user selects an image from the app's gallery or camera roll.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.30\textwidth]{images/selectImage.jpeg}
+            \caption{Verify Image: Select Image}
+            \label{fig:verifySelectImage}
+        \end{figure}
+
     
     \item {\textbf{Recomputation of Merkle Root: }} The app re-hashes the image and selected metadata fields to reconstruct the Merkle Tree and compute the Merkle Root.
     \item {\textbf{Smart Contract Query:}} The Merkle Root is used to query the smart contract using the \textit{verifyHash()} function.
@@ -304,6 +378,19 @@ This flow allows a user to validate whether a previously captured image is authe
             \item If the hash exists on-chain, valid message is displayed.
             \item If the hash is not found, the app informs the user that the image is unverifiable.
         \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.30\textwidth]{images/verifySuccess.jpeg}
+            \caption{Verify Image:  Successfully verified}
+            \label{fig:verificationResultSuccess}
+        \end{figure}
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.30\textwidth]{images/verifyFailed.jpeg}
+            \caption{Verify Image: Verification Failed}
+            \label{fig:verificationResultFailed}
+        \end{figure}
 \end{itemize}
 
 
