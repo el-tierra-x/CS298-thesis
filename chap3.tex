@@ -21,7 +21,7 @@ The iOS platform provides a range of security features, including the Secure Enc
 \section{Smart Contract and Blockchain Design}
 The smart contract forms the core component of our decentralized photo verification system. It is the main responsible agent for storing the cryptographic hashes of photos and their associated metadata on the Ethereum blockchain. The smart contract is designed to be efficient and cost-effective, while also ensuring secure storage and retrieval of photo hashes and metadata.
 
-The  photo verification system is built on top of the Ethereum blockchain \cite{ethereuem}, a programmable and decentralized database that allows running smart contracts—self-executing code snippets that execute in a trustless environment. Ethereum's popularity stems from its mature ecosystem, decent developer support, and fully featured toolchains, which make it an ideal candidate to store immutable and verifiable digital assets.
+The  photo verification system is built on top of the Ethereum blockchain \cite{ethereuem}, a programmable and decentralized database that allows running smart contracts self-executing code snippets that execute in a trustless environment. Ethereum's popularity stems from its mature ecosystem, decent developer support, and fully featured toolchains, which make it an ideal candidate to store immutable and verifiable digital assets.
 
 The application uses ERC721 standards to store unique photo entries which were initially established for NFTs  \cite{erc721}. ERC20 tokens are interchangeable but ERC721 tokens serve as unique digital items because they represent one-of-a-kind digital content like hashes derived from images along with their metadata. The ERC721 standard provides unique tokenId assignment for each token which serves perfectly for blockchain identity photo associations.
 
@@ -206,7 +206,7 @@ Using a comprehensive set of metadata increases the entropy of the final hash an
 \begin{itemize}
     \item Changing a timestamp or location will produce a different Merkle Root.
     \item Cropping or resampling the image will alter geometry fields.
-    \item Re-saving the image through editing tools often resets EXIF fields—thus, changes are detected.
+    \item Re-saving the image through editing tools often resets EXIF fields thus, changes are detected.
 \end{itemize}
 
 The use of SHA-256 follows established practices in robust image hashing \cite{robustImageHashing} and EXIF-based authentication \cite{authenticationOfDigitalImageExifMetadata}, offering both collision resistance and performance suitable for mobile environments.

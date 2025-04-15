@@ -1,0 +1,34 @@
+\chapter{Conclusion and Future Work}
+\label{chap:conclusion}
+
+\section{Conclusion}
+
+In this chapter, we summarize the key findings of our research and discuss potential future work that can be built upon this foundation. 
+This report presented the design, implementation, and analysis of a decentralized photo verification system built using the Ethereum blockchain. The system employs Solidity-based smart contracts to store the cryptographic hash of an image and its metadata, ensuring immutable registration and authenticity verification. 
+By utilizing the Merkle Tree structure, the system offers flexible verification with both full and partial metadata, enabling users to validate photos efficiently.
+Key highlights of the implementation include:
+
+\begin{itemize}
+    \item \textbf{Efficient use of blockchain storage:} Storing only hashes significantly reduces gas fees, making the system cost-effective and scalable.
+    \item \textbf{Fast and secure verification:} The system provides instant verification with minimal user intervention, as the smart contract allows for O(1) lookups without additional transaction costs for verification.
+    \item \textbf{Mobile security integration:} By leveraging iOS-specific security features, such as the Secure Enclave, code signing, and sandboxing, the app ensures non-tamperable operations and robust user data protection.
+    \item \textbf{User control and decentralized identity:} By integrating 3rd party wallet connect (Metamask) for transaction signing, the system ensures that the user retains full control over their on-chain identity and interactions.
+\end{itemize}
+
+The implementation achieves a highly secure, cost-efficient, and user-friendly system for verifying the authenticity of digital images. This system is applicable in contexts such as photo provenance for social media, journalism, and legal documentation, where verification of image integrity is critical.
+
+\section{Future Work}
+\label{sec:future-work}
+While the current system provides a strong foundation for photo verification, several areas present opportunities for future development and optimization:
+
+\begin{itemize}
+    \item \textbf{Integration with IPFS for Image Storage:} Although the current system stores only the image hash, future versions could integrate IPFS for decentralized storage of the image content itself. This would allow for cost-efficient, scalable storage while ensuring the data remains accessible and tamper-proof. The use of IPFS would also allow the app to store larger image files while maintaining a minimal on-chain footprint by only storing the IPFS hash.
+    \item \textbf{Zero-Knowledge Proofs for Privacy Preservation:} Future enhancements could explore zero-knowledge proofs (ZKPs) to enable users to verify photo authenticity without revealing any metadata. This would allow for the verification of images based on just the Merkle Root, without disclosing sensitive information such as the device used, timestamp, or location. ZKP-based solutions could help address privacy concerns while still providing robust verification.
+    \item \textbf{Cross-Platform Compatibility:} Currently, the app is limited to the iOS platform, but future work could extend the system to Android. This would involve addressing platform-specific challenges, such as cryptographic key management, hardware security module (HSM) integration, and wallet interactions. Ensuring cross-platform compatibility could help expand the system's accessibility and user base.
+    \item \textbf{Further Gas Fee Optimizations:} Although the current system is gas-efficient by storing only hashes, additional gas optimization strategies could further reduce costs. For example, using Layer-2 solutions like Optimism or Polygon could allow for even lower transaction fees while maintaining the security guarantees of the Ethereum network. This would make the solution more scalable for high-volume use cases.
+    \item \textbf{Smart Contract Audits and Security:} As with any blockchain-based system, continuous audits and updates to the smart contract are essential to ensure its security. Future work should include regular smart contract audits, bug bounty programs, and vulnerability testing to ensure the system remains secure against evolving attack vectors.
+\end{itemize}
+
+\section{Final Thoughts}
+The proposed decentralized photo verification system represents a significant step forward in ensuring authenticity and integrity in the age of digital image manipulation. 
+By leveraging blockchain technology, cryptographic hashes, and mobile security features, the system provides a robust framework for image provenance and tamper detection. The system's scalability and cost-efficiency make it a viable solution for wide-scale adoption across various sectors, while its future enhancements such as IPFS integration and ZKPs promise to further improve privacy and storage management.

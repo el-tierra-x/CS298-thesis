@@ -5,6 +5,7 @@ A level-1 auxiliary file: chap1.aux
 A level-1 auxiliary file: chap2.aux
 A level-1 auxiliary file: chap3.aux
 A level-1 auxiliary file: chap4.aux
+A level-1 auxiliary file: chap5.aux
 The style file: uriref.bst
 A level-1 auxiliary file: appA.aux
 A level-1 auxiliary file: appB.aux
@@ -24,7 +25,7 @@ Database file #1: references.bib
 Done.
 You've used 29 entries,
             3985 wiz_defined-function locations,
-            984 strings with 13693 characters,
+            985 strings with 13702 characters,
 and the built_in function-call counts, 17561 in all, are:
 = -- 1364
 > -- 386
